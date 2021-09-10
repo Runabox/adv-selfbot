@@ -12,14 +12,14 @@ client.on('ready', () => {
         Send message in disboard channel stating that the bot has started 
         (make sure this channel is private in your server)
     */
-    /*const channel = client.channels.cache.get(config.disboard.channelID);
+    const channel = client.channels.cache.get(config.disboard.channelID);
     channel.send('Advertising bot started');
-    */
+    
 
-    //atdm();
+    atdm();
 });
 
-/*// Set interval for bump message
+// Set interval for bump message
 setInterval(() => {
     // Send bump message
     const channel = client.channels.cache.get(config.disboard.channelID);
@@ -29,7 +29,7 @@ setInterval(() => {
 // Set interval for advertising message
 setInterval(() => {
     atdm();
-}, (1200 * 1000));*/
+}, (1200 * 1000));
 
 client.on('messageCreate', (msg) => {
     // idk
