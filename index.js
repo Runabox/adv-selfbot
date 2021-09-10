@@ -2,6 +2,8 @@ const { Client } = require('discord.js');
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES"], partials: ["CHANNEL"] });
 const config = require('./config.json');
 
+const idCache = {};
+
 client.on('ready', () => {
     // Logged into discord gateway
     console.log(`Logged in as ${client.user.tag}!`);
@@ -36,9 +38,24 @@ client.on('messageCreate', (msg) => {
 
     // Reply to DM message and log user tag
     if (msg.channel.type === 'DM' && msg.author.id !== client.user.id) {
+        let authorId = msg.author.id;
+
+        // Cache the id and make sure it won't reply to their message again to avoid getting reported for being a bot
+        if (idCache.includes(authorId)) {
+            return;
+        }
+
+        idCache.push(authorId);
         console.log(msg.author.tag);
 
-        msg.reply(config.message);
+        // make look realistic hh
+        setTimeout(() => {
+            msg.channel.sendTyping();
+        }, 4000);
+
+        setTimeout(() => {
+            msg.reply(config.message);
+        }, 6000);
     }
 });
 
