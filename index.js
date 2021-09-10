@@ -14,15 +14,14 @@ client.on('ready', () => {
     */
     const channel = client.channels.cache.get(config.disboard.channelID);
     channel.send('Advertising bot started');
-    
+
+    bump();
     atdm();
 });
 
 // Set interval for bump message
 setInterval(() => {
-    // Send bump message
-    const channel = client.channels.cache.get(config.disboard.channelID);
-    channel.send('!d bump');
+    bump();
 }, (7500 * 1000));
 
 // Set interval for advertising message
@@ -51,11 +50,11 @@ client.on('messageCreate', (msg) => {
         // make look realistic hh
         setTimeout(() => {
             msg.channel.sendTyping();
-        }, 4000);
+        }, 4592);
 
         setTimeout(() => {
             msg.reply(config.message);
-        }, 6000);
+        }, 15231);
     }
 });
 
@@ -65,6 +64,14 @@ client.on('messageCreate', (msg) => {
 const atdm = () => {
     const channel = client.channels.cache.get(config.advChannelID);
     channel.send(config.serverMessage);
+}
+
+/*
+    Function that sends "!d bump" message in specified channel
+*/
+const bump = () => {
+    const channel = client.channels.cache.get(config.disboard.channelID);
+    channel.send('!d bump');
 }
 
 // Login to gateway
