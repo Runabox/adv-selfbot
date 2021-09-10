@@ -1,0 +1,11 @@
+// RENAME THIS FILE TO config.json AND REMOVE THIS LINE AFTER PUTTING IN CORRECT VALUES
+{
+    "token": "",
+    "serverMessage": "",
+    "message": "",
+    "disboard": {
+        "channelID": ""
+    },
+    "advChannelID": "",
+    "advChannelServer": ""
+}
