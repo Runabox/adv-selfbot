@@ -15,7 +15,6 @@ client.on('ready', () => {
     const channel = client.channels.cache.get(config.disboard.channelID);
     channel.send('Advertising bot started');
     
-
     atdm();
 });
 
